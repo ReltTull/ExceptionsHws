@@ -39,7 +39,7 @@ public class Hw_1 {
         }
         int[] res = new int[arr1.length];
         for (int i = 0; i < arr1.length; i++) {
-            res[i] = arr1[i] = arr2[i];
+            res[i] = arr1[i] - arr2[i];
         }
         return res;
     }
