@@ -16,14 +16,19 @@ public class Hw_2 {
 //        return res;
 //    }
 
-    public static void printSum(Integer a, Integer b) throws FileNotFoundException {
-        System.out.println(a + b);
-    }
+//    public static void printSum(Integer a, Integer b) throws FileNotFoundException {
+//        System.out.println(a + b);
+//    }
 
+    private static String ex_4(String inp) {
+        String res = inp;
+        if (res.isEmpty()) {
+            throw new RuntimeException("Empty input value is not available.");
+        } else return res;
+    }
 
     public static void main(String[] args) {
 //        System.out.println(ex_1());
-
 
 //        try {
 //            int d = 0;
@@ -48,19 +53,19 @@ public class Hw_2 {
 //            System.out.println("catchedRes1 = " + catchedRes1);
 //        }
 
-        try {
-            int a = 90;
-            int b = 3;
-            System.out.println(a / b);
-            printSum(23, 234);
-            int[] abc = {1, 2};
-            abc[3] = 9;
-        } catch (NullPointerException | IndexOutOfBoundsException | ArithmeticException exception) {
-            System.out.println(exception.getMessage());
-        } catch (Throwable ex) {
-            System.out.println("Something is broke...");
-        }
+//        try {
+//            int a = 90;
+//            int b = 3;
+//            System.out.println(a / b);
+//            printSum(23, 234);
+//            int[] abc = {1, 2};
+//            abc[3] = 9;
+//        } catch (NullPointerException | IndexOutOfBoundsException | ArithmeticException exception) {
+//            System.out.println(exception.getMessage());
+//        } catch (Throwable ex) {
+//            System.out.println("Something is broke...");
+//        }
 
-
+        System.out.println(ex_4(""));
     }
 }
