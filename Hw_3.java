@@ -11,8 +11,9 @@ public class Hw_3 {
         String inputInfo = scanner.nextLine();
         String[] subStr = inputInfo.split(" ");
         if (checkData(subStr)) {
+            String fileName = subStr[0] + ".txt";
             File file = new File("C:\\Users\\roman.LAPTOP-UOUKIJR8\\IdeaProjects\\GB\\ExceptionsHws",
-                    "PersonalInfo.txt");
+                    fileName);
             FileWriter writer = new FileWriter(file);
             writer.write(inputInfo);
             writer.flush();
@@ -65,7 +66,7 @@ public class Hw_3 {
             throw new IllegalArgumentException("Birthdate parameter not detected");
         }
         if (!emptyParameter) {
-            throw new RuntimeException("Empty parameter");
+            throw new IllegalArgumentException("Empty parameter");
         }
 
         if (quantity && sexParameter && birthdateParameter && phoneParameter && emptyParameter) {
