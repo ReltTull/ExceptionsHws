@@ -11,7 +11,7 @@ public class Hw_3 {
         String inputInfo = scanner.nextLine();
         String[] subStr = inputInfo.split(" ");
         if (checkData(subStr)) {
-            File file = new File("C:\\Users\\r.LAPTOP\\IdeaProjects\\GB\\ExceptionsHws",
+            File file = new File("C:\\Users\\roman.LAPTOP-UOUKIJR8\\IdeaProjects\\GB\\ExceptionsHws",
                     "PersonalInfo.txt");
             FileWriter writer = new FileWriter(file);
             writer.write(inputInfo);
@@ -22,32 +22,33 @@ public class Hw_3 {
 
     private static boolean checkData (String[] info) {
         boolean quantity = false;
-        boolean emptyParametr = true;
-        boolean sexParametr = false;
-        boolean birthdateParametr = false;
-        boolean phoneParametr = false;
+        boolean emptyParameter = true;
+        boolean sexParameter = false;
+        boolean birthdateParameter = false;
+        boolean phoneParameter = false;
         boolean res = false;
         if (info.length == 6) {
             quantity = true;
         }
         for (int i = 0; i < info.length; i++) {
             if (info[i].isEmpty()) {
-                emptyParametr = false;
+                emptyParameter = false;
             }
             if (Objects.equals(info[i], "m") || Objects.equals(info[i], "f")) {
-                sexParametr = true;
+                sexParameter = true;
             }
             if (info[i].length() == 10) {
                 char[] chars = info[i].toCharArray();
                 if (chars[2] == '.' || chars[5] == '.') {
-                    birthdateParametr = true;
+                    birthdateParameter = true;
                 }
             }
             try {
-                int number = Integer.parseInt(info[i]);
-                phoneParametr = true;
+//                int number = Integer.parseInt(info[i]);
+                long number = Long.parseLong(info[i]);
+                phoneParameter = true;
             } catch (NumberFormatException e) {
-                if (!phoneParametr && i == info.length - 1) {
+                if (!phoneParameter && i == info.length - 1) {
                     System.out.println("Phone number not detected.");
                 }
             }
@@ -55,19 +56,19 @@ public class Hw_3 {
 
 
         if (!quantity) {
-            throw new RuntimeException("Parametrs quantity not correct");
+            throw new RuntimeException("Parameters quantity not correct");
         }
-        if (!sexParametr) {
-            throw new IllegalArgumentException("Sex parametr not detected");
+        if (!sexParameter) {
+            throw new IllegalArgumentException("Sex parameter not detected");
         }
-        if (!birthdateParametr) {
-            throw new IllegalArgumentException("Birthdate parametr not detected");
+        if (!birthdateParameter) {
+            throw new IllegalArgumentException("Birthdate parameter not detected");
         }
-        if (!emptyParametr) {
-            throw new RuntimeException("Empty parametr");
+        if (!emptyParameter) {
+            throw new RuntimeException("Empty parameter");
         }
 
-        if (quantity && sexParametr && birthdateParametr && phoneParametr && emptyParametr) {
+        if (quantity && sexParameter && birthdateParameter && phoneParameter && emptyParameter) {
             res = true;
         }
         return res;
